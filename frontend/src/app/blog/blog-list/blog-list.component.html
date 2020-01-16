@@ -1,0 +1,9 @@
+<div class="card" *ngFor="let blog of blogs">
+    <img src="https://cdn.lifehack.org/wp-content/uploads/2013/04/33.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{ blog.title }}</h5>
+        <p class="card-text">{{ blog.description }}</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+</div>
+
