@@ -2,6 +2,7 @@ import { FormBuilder } from '@angular/forms';
 import { UserService } from './../user.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,29 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  public loginError;
+
   public loginForm = this.fb.group({
     email: [''],
     password: ['']
   });
 
-  public isLoggedInAlert = false;
-
-  constructor(private userService: UserService, private fb: FormBuilder) { }
+  constructor(private userService: UserService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
   }
 
   onSubmit(form){
-    console.log(this.loginForm.value);
     this.userService.login(this.loginForm.value).subscribe(
       (data) => {
-        this.userService.token = data['success'].token;
-        this.userService.isLoggedIn = true;
-        this.isLoggedInAlert = true;
-        form.reset();
+        localStorage.setItem('token', data['token']);
+        this.router.navigate(['/']);
       },
       (er) => {
-        console.log(er.error);
+        this.loginError = er;
       }
     );
     

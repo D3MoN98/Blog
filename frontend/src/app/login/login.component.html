@@ -4,8 +4,8 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <div *ngIf="isLoggedInAlert" class="alert alert-success" role="alert">
-                Registration successful
+            <div *ngIf="loginError" class="alert alert-danger text-center" role="alert">
+                {{ loginError.error }}
             </div>
             <form [formGroup]="loginForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
                 <div class="form-group">
