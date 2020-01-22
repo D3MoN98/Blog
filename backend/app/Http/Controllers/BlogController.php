@@ -43,14 +43,15 @@ class BlogController extends Controller
         $validator = Validator::make($request->all(),[ 
             'title' => 'required',
             'description' => 'required',
+            'user_id' => 'required',
         ]);
         
         if ($validator->fails()) {          
-            return response()->json(['error'=>$validator->errors()], 401);
+            return response()->json($validator->errors(), 401);
         }
 
         $input = $request->all();
-        $input['user_id'] = 1;
+        // $input['user_id'] = 1;
 
         $blog_id = Blog::create($input)->blog_id;
 

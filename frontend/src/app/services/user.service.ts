@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +13,8 @@ export class UserService {
   private url = "http://127.0.0.1:8000/api/";
 
   public token;
+
+  // public user: User
 
 
   constructor(private httpClient: HttpClient, private router: Router) { }
@@ -22,8 +27,8 @@ export class UserService {
     return this.httpClient.post(this.url+"login", user);
   }
 
-  getUser(){
-    return this.httpClient.get(this.url+'get_user');
+  getUser(): Observable<User>{
+    return this.httpClient.get<User>(this.url+'get_user').pipe(map(data => new User().deserialize(data['user'])));
   }
 
   isLoggedIn(){
@@ -31,6 +36,7 @@ export class UserService {
   }
 
   logout(){
+    localStorage.removeItem('user_id');
     localStorage.removeItem('token');
     return this.router.navigate(['/']);
   }

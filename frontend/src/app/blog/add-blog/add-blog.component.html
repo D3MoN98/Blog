@@ -4,16 +4,21 @@
     <div class="row mt-5">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <form action="">
+            <div class="alert alert-success text-center" *ngIf="formSubmittedSuccess" role="alert">
+                <strong>One Blog added</strong>
+            </div>
+            <form [formGroup]="blogForm" #bloFrm (ngSubmit)="onSubmit(bloFrm)">
                 <div class="form-group">
-                  <label for="">Title</label>
-                  <input type="text" name="" id="" class="form-control" placeholder="Enter Title">
+                  <label for="title">Title</label>
+                  <input type="text" name="title" formControlName="title" id="title" class="form-control  {{ blogFormError.hasOwnProperty('title') ? 'is-invalid' : '' }}" placeholder="Enter Title">
+                  <div class="invalid-feedback" *ngIf="blogFormError.hasOwnProperty('title')">{{ blogFormError.title }}</div>
                 </div>
                 <div class="form-group">
-                    <label for="">Title</label>
-                    <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description"></textarea>
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" formControlName="description" cols="30" rows="10" class="form-control  {{ blogFormError.hasOwnProperty('description') ? 'is-invalid' : '' }}" placeholder="Enter Description"></textarea>
+                    <div class="invalid-feedback" *ngIf="blogFormError.hasOwnProperty('description')">{{ blogFormError.description }}</div>
                 </div>
-                <button type="button" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">Save</button>
             </form>
         </div>
         <div class="col-md-3"></div>

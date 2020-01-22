@@ -1,6 +1,7 @@
 import { UserService } from '../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-user-profile',
@@ -9,18 +10,14 @@ import { Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
-  public user = {
-    name: '',
-    email: ''
-  };
+  public user: User;
 
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.userService.getUser().subscribe(
       (res) => {
-        this.user = res['user'];
-        console.log(this.user.name);
+        this.user = res;
       },
       (er) => {
         if(er.status === 401){
