@@ -18,6 +18,12 @@
             <li class="nav-item" *ngIf="userService.isLoggedIn()">
                 <a class="nav-link" href="javascript:void(0)" (click)="userService.logout()">Logout</a>
             </li>
+            <li class="nav-item" routerLinkActive="active" *ngIf="userService.isLoggedIn()">
+                <a class="nav-link" [routerLink]="[ '/profile' ]">Profile</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" *ngIf="userService.isLoggedIn()">
+                <a class="nav-link" [routerLink]="[ '/add-blog' ]">Add Blog</a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">

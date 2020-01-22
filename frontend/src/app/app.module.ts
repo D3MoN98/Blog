@@ -13,8 +13,11 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BlogListComponent } from './blog/blog-list/blog-list.component';
 import { AuthGuard } from './guard/auth.guard';
-import { UserService } from './user.service';
-import { BlogService } from './blog/blog.service';
+import { UserService } from './services/user.service';
+import { BlogService } from './services/blog.service';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AddBlogComponent } from './blog/add-blog/add-blog.component';
+import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { BlogService } from './blog/blog.service';
     LoginComponent,
     RegisterComponent,
     BlogListComponent,
+    UserProfileComponent,
+    AddBlogComponent,
+    BlogDetailComponent
   ],
   imports: [
     BrowserModule,

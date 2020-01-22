@@ -22,6 +22,10 @@ export class UserService {
     return this.httpClient.post(this.url+"login", user);
   }
 
+  getUser(){
+    return this.httpClient.get(this.url+'get_user');
+  }
+
   isLoggedIn(){
     return !!localStorage.getItem('token');
   }

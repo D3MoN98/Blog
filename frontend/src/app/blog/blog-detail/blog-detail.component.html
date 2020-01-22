@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="container" *ngIf="blog">
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <div class="blog_img">
+                <img src="https://cdn.pling.com/img/7/6/5/5/369d20d7037754783f20c3ddf88d05ee8c5e.png" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-10">
+            <h3>{{ blog.title }}</h3>
+        </div>
+        <div class="col-md-2">
+            <!-- <small>{{ blog.getBloggerName() }}</small> -->
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-12">
+            <p>
+                {{ blog.description }}
+            </p>
+        </div>
+    </div>
+</div>

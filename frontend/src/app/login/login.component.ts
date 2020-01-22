@@ -1,5 +1,5 @@
 import { FormBuilder } from '@angular/forms';
-import { UserService } from './../user.service';
+import { UserService } from '../services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
