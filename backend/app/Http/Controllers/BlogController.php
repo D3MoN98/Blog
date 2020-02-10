@@ -40,6 +40,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(),[ 
             'title' => 'required',
             'description' => 'required',
@@ -51,6 +52,7 @@ class BlogController extends Controller
         }
 
         $input = $request->all();
+        $input['image'] = $request->image->store('blog', 'public');
         // $input['user_id'] = 1;
 
         $blog_id = Blog::create($input)->blog_id;

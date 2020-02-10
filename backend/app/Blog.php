@@ -9,7 +9,7 @@ class Blog extends Model
     protected $primaryKey = 'blog_id';
     
     protected $fillable = [
-        'title', 'description', 'user_id',
+        'title', 'description', 'user_id', 'image'
     ];
 
 }
