@@ -96,7 +96,18 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(),[ 
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+        
+        if ($validator->fails()) {          
+            return response()->json($validator->errors(), 401);
+        }
+        $input = $request->all();
+        Blog::findOrFail($id)->update($input);
+        return response()->json(['success'], 200);
+
     }
 
     /**

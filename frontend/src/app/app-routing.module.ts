@@ -1,3 +1,4 @@
+import { EditBlogComponent } from './blog/edit-blog/edit-blog.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'blog-detail/:blog_id',
     component: BlogDetailComponent
+  },
+  {
+    path: 'edit-blog/:blog_id',
+    component: EditBlogComponent
   }
 ];
 

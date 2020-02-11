@@ -17,6 +17,11 @@ export class BlogService {
   storeBlog(blog){
     return this.httpClient.post(this.url+'blog', blog);
   }
+  
+  updateBlog(blog, id){
+    // console.log(blog);
+    return this.httpClient.put(this.url+'blog/'+id, blog);
+  }
 
   getBlogs(): Observable<Blog[]>{
     return this.httpClient.get<Blog[]>(this.url+"blog").pipe(map(data => data['blogs'].map(data => new Blog().deserialize(data))));

@@ -20,6 +20,7 @@ import { BlogService } from './services/blog.service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AddBlogComponent } from './blog/add-blog/add-blog.component';
 import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
+import { EditBlogComponent } from './blog/edit-blog/edit-blog.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BlogDetailComponent } from './blog/blog-detail/blog-detail.component';
     BlogListComponent,
     UserProfileComponent,
     AddBlogComponent,
-    BlogDetailComponent
+    BlogDetailComponent,
+    EditBlogComponent
   ],
   imports: [
     BrowserModule,

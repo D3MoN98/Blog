@@ -44,4 +44,8 @@ export class UserService {
   getToken(){
     return localStorage.getItem('token');
   }
+  
+  getUserId(){
+    return localStorage.getItem('user_id');
+  }
 }

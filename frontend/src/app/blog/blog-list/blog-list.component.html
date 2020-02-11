@@ -1,5 +1,5 @@
 <div class="card" *ngFor="let blog of blogs">
-    <img src="http://localhost:8000/storage/{{ blog.image }}" class="card-img-top" alt="...">
+    <a [routerLink]="[ '/blog-detail', blog.blog_id ]"><img src="http://localhost:8000/storage/{{ blog.image }}" class="card-img-top" alt="..."></a>
     <div class="card-body">
         <h5 class="card-title"><a [routerLink]="[ '/blog-detail', blog.blog_id ]">{{ blog.title }}</a></h5>
         <p class="card-text">{{ blog.description }}</p>

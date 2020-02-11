@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
   templateUrl: './add-blog.component.html',
   styleUrls: ['./add-blog.component.css']
 })
+
 export class AddBlogComponent implements OnInit {
 
   constructor(
@@ -40,7 +41,7 @@ export class AddBlogComponent implements OnInit {
 
     this.blogService.storeBlog(formData).subscribe(
       (res) => {
-        console.log(res);
+        // console.log(res);
         this.formSubmittedSuccess = true;
         this.blogFormError = new Object;
         form.reset();
